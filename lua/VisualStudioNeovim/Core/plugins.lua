@@ -49,7 +49,6 @@ return packer.startup(function(use)
   -- Icons
   use "kyazdani42/nvim-web-devicons"
   -- File Browser
-  use "kyazdani42/nvim-tree.lua"
   -- BufferLine
   use "akinsho/bufferline.nvim"
   -- Buffer delete commands
@@ -97,7 +96,6 @@ return packer.startup(function(use)
   -- Neovim Colorizer
   use "norcalli/nvim-colorizer.lua"
   -- Tabnine cmp
-  use { "tzachar/cmp-tabnine", run="./install.sh"}
   -- Tagbar
   use "simrat39/symbols-outline.nvim"
   -- Notifications
@@ -116,11 +114,7 @@ return packer.startup(function(use)
   -- git signs
   use "lewis6991/gitsigns.nvim"
   -- debugging
-  use "Pocco81/DAPInstall.nvim"
   use "mfussenegger/nvim-dap"
-  use "rcarriga/nvim-dap-ui"
-  use "VSNeoVim/Darkup"
-  use "VSNeoVim/onedarkest"
   use "kdheepak/lazygit.nvim"
   use 'rockerBOO/boo-colorscheme-nvim'
   use "folke/zen-mode.nvim"
@@ -164,10 +158,13 @@ return packer.startup(function(use)
     }
   end
   }
-  use {'nvim-orgmode/orgmode', config = function()
-        require('orgmode').setup{}
-  end
-  }
+  use {
+  'kyazdani42/nvim-tree.lua',
+  requires = {
+    'kyazdani42/nvim-web-devicons', -- optional, for file icons
+  },
+  tag = 'nightly' -- optional, updated every week. (see issue #1193)
+}
   use 'cljoly/telescope-repo.nvim'
   use 'rinx/nvim-minimap'
 
